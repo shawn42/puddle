@@ -1,6 +1,17 @@
 # Puddle
 
-TODO: Write a gem description
+Simple object pooling.
+
+```ruby
+class Particle
+  include Puddle
+end
+
+# drink from the pool
+p = Particle.drink
+
+# spit the object back in
+p.spit!
 
 ## Installation
 
@@ -15,10 +26,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install puddle
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
