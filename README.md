@@ -12,6 +12,7 @@ p = Particle.drink
 
 # spit the object back in
 p.spit!
+```
 
 ## Installation
 
