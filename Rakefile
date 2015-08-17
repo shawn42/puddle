@@ -1,16 +1,9 @@
-#!/usr/bin/env rake
-require "bundler/gem_tasks"
+require 'rubygems'
+require 'rake/extensiontask'
+require 'rspec/core/rake_task'
+require 'bundler/gem_tasks'
 
-begin
-  require 'rspec/core/rake_task'
-  desc "Run all rspecs"
-  RSpec::Core::RakeTask.new(:spec) do |t|
-    t.pattern = 'spec/**/*_spec.rb'
-    t.rspec_opts = '-c'
-  end
+Rake::ExtensionTask.new('puddle_ext')
+RSpec::Core::RakeTask.new
 
-  task :default => :spec
-rescue LoadError
-  puts "please install rspec to run tests"
-  puts "install with gem install rspec"
-end
+task :default => [:compile, :spec]
